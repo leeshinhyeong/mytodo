@@ -19,7 +19,7 @@ export default function Input({value,changeText,addTodoItem}) {
 
 const styles = StyleSheet.create({
     Input: {
-        fontSize:17,
+      fontSize:17,
       fontWeight:'bold',
       marginTop:10,
       //marginBottom:20,

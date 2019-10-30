@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { red } from 'ansi-colors';
 
 export default function Header() {
   return (
@@ -18,7 +19,8 @@ const styles = StyleSheet.create({
     headertext: {
         fontSize: 25,
         fontWeight:'bold',
-        color:'#3f4e66'
+        color:'#3f4e66',
+        color:'red'
 
     }
 

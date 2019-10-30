@@ -12,8 +12,23 @@ export default class App extends React.Component {
     super(props);
     this.state={
       inputValue : '',
-      todos:[]
+      todos:[],
+      date : new Date()
     }
+  }
+  componentDidMount(){
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+  componentWillUnmount(){
+    clearInterval(this.timerID);
+  }
+  tick() {
+    this.setState({
+      date: new Date()
+    });
   }
   componentWillMount(){
     this.getData()
@@ -84,6 +99,11 @@ export default class App extends React.Component {
          renderItem = {this._makeTodoItem}
          keyExtractor = {(item,index) => {return `$(index)`}} />
       </View>
+
+      <Text style = {styles.date}>
+        날짜 :
+        {this.state.date.toLocaleDateString()}
+      </Text>
     </View>
   );
 }
@@ -99,5 +119,9 @@ const styles = StyleSheet.create({
   },
   subtitleposi:{
     marginLeft:50,
-  } 
+  },
+  date:{
+    marginLeft:50,
+    marginTop:20,
+  }
 });
